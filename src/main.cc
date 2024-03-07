@@ -11,7 +11,7 @@ int main() {
 
     std::cout << "Contains 3: " << set.contains(3) << std::endl; //  Contains 3: 1
 
-    set.erase(3);
+    set.erase(5);
 
     set.print(); //  5 7
 

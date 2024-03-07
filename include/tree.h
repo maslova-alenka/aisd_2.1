@@ -98,9 +98,23 @@ class Set {
                 delete node;
                 return tmp;
             }
+            Node* temp = min_value_node(node->right);
+            node->key = temp->key;
+            node->right = erase_helper(node->right, temp->key);
         }
         return node;
     }
+
+    Node* min_value_node(Node* node) {
+        Node* current = node;
+
+        while (current && current->left != nullptr) {
+            current = current->left;
+        }
+
+        return current;
+    }
+
 
 public:
     Set() : _root(nullptr), _size(0) {}
