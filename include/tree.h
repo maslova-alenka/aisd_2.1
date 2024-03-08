@@ -2,6 +2,7 @@
 #define TREE_INCLUDE_TREE_H
 
 #include <iostream>
+#include <stack>
 
 class Set {
 	struct Node {
@@ -117,6 +118,19 @@ class Set {
 
 
 public:
+    class Iterator {
+        std::stack<Node*> node_stack;
+        Node* current;
+    public:
+        Iterator(Node* root) {
+            current = root;
+            while (current != nullptr) {
+                node_stack.push(current);
+                current = current->left;
+            }
+        }
+    };
+
     Set() : _root(nullptr), _size(0) {}
 
     Set(const Set& other) {
@@ -169,6 +183,14 @@ public:
 
     Node* root() const {
         return _root;
+    }
+
+    Iterator begin() {
+        return Iterator(_root);
+    }
+
+    Iterator end() {
+        return Iterator(nullptr);
     }
 };
 
