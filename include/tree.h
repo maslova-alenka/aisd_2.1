@@ -119,15 +119,39 @@ class Set {
 
 public:
     class Iterator {
-        std::stack<Node*> node_stack;
+        std::stack<Node*> stack;
         Node* current;
     public:
         Iterator(Node* root) {
             current = root;
             while (current != nullptr) {
-                node_stack.push(current);
+                stack.push(current);
                 current = current->left;
             }
+        }
+
+        void operator++() {
+            Node* node = stack.top();
+            stack.pop();
+            if (node->right) {
+                current = node->right;
+                while (current) {
+                    stack.push(current);
+                    current = current->left;
+                }
+            }
+        }
+
+        int operator*() {
+            return stack.top()->key;
+        }
+
+        bool operator==(const Iterator& other) {
+            return stack == other.stack;
+        }
+
+        bool operator!=(const Iterator& other) {
+            return (!stack.empty()) || (!other.stack.empty());
         }
     };
 
