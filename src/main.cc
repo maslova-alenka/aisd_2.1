@@ -18,6 +18,15 @@ int main() {
     set.erase(5);
 	std::cout << "set erase: ";
     set.print(); //  5 7
+
+	set.insert(9);
+	set.insert(1);
+
+	std::cout << std::endl;
+	for (Set::Iterator it = set.begin(); it != set.end(); ++it) {
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
 	std::cout << std::endl;
 
 	Set set1;
@@ -59,6 +68,7 @@ int main() {
 	difference_tree.print();
 	std::cout << "symmetric_difference_set: ";
 	difference_set.print();
+
 
 	//Set set3 = generate_rand_set(100000);
 	//std::vector<int> vec = generate_rand_vector(100000);
