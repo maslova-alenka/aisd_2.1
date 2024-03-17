@@ -1,5 +1,7 @@
 #include "../include/tree.h"
 #include "../include/task.h"
+#include "../include/rand.h"
+#include "../include/test.h"
 
 int main() {
     Set set;
@@ -57,6 +59,18 @@ int main() {
 	difference_tree.print();
 	std::cout << "symmetric_difference_set: ";
 	difference_set.print();
+
+	//Set set3 = generate_rand_set(100000);
+	//std::vector<int> vec = generate_rand_vector(100000);
+
+	//std::cout << "average_fiiling_time_set: " << average_filling_time(generate_rand_set, 100000) << std::endl;
+	//std::cout << "average_fiiling_time_vector: " << average_filling_time(generate_rand_vector, 100000) << std::endl;
+	//std::cout << "average_search_set: " << average_search_set(set3) << std::endl;
+	//std::cout << "average_search_vector: " << average_search_vector(vec) << std::endl;
+	//std::cout << "average_insert_set: " << average_insert_set(set3) << std::endl;
+	//std::cout << "average_insert_vector: " << average_insert_vector(vec,10) << std::endl;
+	//std::cout << "average_erase_set: " << average_erase_set(set3) << std::endl;
+	//std::cout << "average_erase_vector: " << average_erase_vector(vec,10) << std::endl;
 
     return 0;
 

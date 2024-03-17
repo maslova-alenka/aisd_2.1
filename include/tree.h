@@ -124,7 +124,7 @@ public:
     public:
         Iterator(Node* root) {
             current = root;
-            while (current != nullptr) {
+            while (current) {
                 stack.push(current);
                 current = current->left;
             }
@@ -147,7 +147,7 @@ public:
         }
 
         bool operator==(const Iterator& other) {
-            return stack == other.stack;
+            return (stack == other.stack);
         }
 
         bool operator!=(const Iterator& other) {
